@@ -1,4 +1,3 @@
-// backend/src/models/Event.ts
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IEvent extends Document {
@@ -7,10 +6,6 @@ export interface IEvent extends Document {
   time: string;
   location: string;
   description: string;
-  image: {
-    data: Buffer;
-    contentType: string;
-  };
 }
 
 const EventSchema = new Schema({
@@ -18,11 +13,7 @@ const EventSchema = new Schema({
   date: { type: String, required: true },
   time: { type: String, required: true },
   location: { type: String, required: true },
-  description: { type: String, required: true },
-  image: {
-    data: Buffer,
-    contentType: String
-  }
+  description: { type: String, required: true }
 });
 
 export default mongoose.model<IEvent>('Event', EventSchema);
